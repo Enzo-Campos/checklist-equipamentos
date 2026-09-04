@@ -1,0 +1,51 @@
+.pinpad-dots {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  padding: 8px 0 4px;
+}
+
+.pinpad-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--hairline);
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.pinpad-dot.filled {
+  background: var(--safety-orange);
+  border-color: var(--safety-orange);
+  transform: scale(1.15);
+}
+
+.pinpad-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.pinpad-key {
+  min-height: 60px;
+  border-radius: var(--radius-md);
+  background: var(--ink-750);
+  border: 1px solid var(--hairline);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.08s ease, background 0.15s ease;
+}
+
+.pinpad-key:hover:not(:disabled) {
+  background: var(--ink-700);
+}
+
+.pinpad-key:active:not(:disabled) {
+  transform: scale(0.94);
+  background: var(--safety-orange-dim);
+}
+
+.pinpad-key:disabled {
+  opacity: 0.4;
+}

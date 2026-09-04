@@ -1,0 +1,77 @@
+.landing {
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.landing::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 63px,
+    rgba(255, 106, 19, 0.05) 63px,
+    rgba(255, 106, 19, 0.05) 64px
+  );
+  pointer-events: none;
+}
+
+.landing-inner {
+  position: relative;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
+
+.landing-mark {
+  color: var(--safety-orange);
+  margin-bottom: 18px;
+}
+
+.landing-tiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 44px;
+}
+
+.landing-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-decoration: none;
+  background: linear-gradient(180deg, var(--ink-800), var(--ink-850));
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+  padding: 26px 22px;
+  box-shadow: var(--shadow-tag);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.landing-tile:hover {
+  transform: translateY(-3px);
+  border-color: var(--safety-orange);
+}
+
+.landing-tile h2 {
+  color: var(--paper);
+  font-size: 1.5rem;
+  margin: 2px 0;
+}
+
+.landing-tile p {
+  font-size: 0.88rem;
+}
+
+.landing-tile-admin .eyebrow {
+  color: var(--paper-mute);
+}
+
+@media (max-width: 640px) {
+  .landing-tiles {
+    grid-template-columns: 1fr;
+  }
+}

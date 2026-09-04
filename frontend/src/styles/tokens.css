@@ -1,0 +1,38 @@
+:root {
+  /* Superfícies — "sala de controle" escura, papel kraft nos acentos */
+  --ink-950: #121109;
+  --ink-900: #16150f;
+  --ink-850: #1c1a13;
+  --ink-800: #232019;
+  --ink-750: #2a2620;
+  --ink-700: #34302a;
+  --hairline: #3a3629;
+
+  --paper: #f2ede1;
+  --paper-dim: #cfc7b3;
+  --paper-mute: #a69f8c;
+
+  /* Acento principal: laranja de etiqueta de equipamento */
+  --safety-orange: #ff6a13;
+  --safety-orange-dim: #cc5510;
+  --safety-orange-ink: #2a1503;
+
+  --safety-yellow: #f4c430;
+  --ok-green: #7fae63;
+  --ok-green-dim: #4c6a3a;
+  --danger-red: #d9503b;
+  --danger-red-dim: #8f3627;
+
+  --font-display: 'Big Shoulders Stencil', 'Arial Narrow', sans-serif;
+  --font-body: 'IBM Plex Sans', -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+
+  --shadow-tag: 0 1px 0 rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-pop: 0 12px 32px rgba(0, 0, 0, 0.45);
+
+  --tap-min: 52px;
+}

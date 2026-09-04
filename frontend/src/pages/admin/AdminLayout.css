@@ -1,0 +1,32 @@
+.admin-header {
+  background: var(--ink-850);
+  border-bottom: 1px solid var(--hairline);
+  padding-top: 18px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.admin-tabs {
+  display: flex;
+  gap: 4px;
+  margin-top: 18px;
+  overflow-x: auto;
+}
+
+.admin-tab {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--paper-mute);
+  padding: 12px 16px;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+}
+
+.admin-tab.active {
+  color: var(--safety-orange);
+  border-bottom-color: var(--safety-orange);
+}
