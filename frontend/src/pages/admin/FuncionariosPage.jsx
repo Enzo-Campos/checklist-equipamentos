@@ -75,7 +75,10 @@ export default function FuncionariosPage() {
 
   return (
     <div className="stack">
-      <h2>Funcionários</h2>
+      <div>
+        <h1>Funcionários</h1>
+        <p style={{ marginTop: 4 }}>Equipe que retira e devolve equipamentos em campo.</p>
+      </div>
 
       <form className="tag-card stack" onSubmit={criar}>
         <span className="eyebrow">Novo funcionário</span>

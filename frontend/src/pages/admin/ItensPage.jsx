@@ -69,7 +69,10 @@ export default function ItensPage() {
 
   return (
     <div className="stack">
-      <h2>Itens</h2>
+      <div>
+        <h1>Itens</h1>
+        <p style={{ marginTop: 4 }}>Catálogo de equipamentos disponíveis para as comandas.</p>
+      </div>
 
       <form className="tag-card stack" onSubmit={criar}>
         <span className="eyebrow">Novo item</span>
@@ -111,7 +114,7 @@ export default function ItensPage() {
                   borderRadius: 8,
                   margin: '0 auto 8px',
                   overflow: 'hidden',
-                  background: 'var(--ink-950)',
+                  background: 'var(--surface-sunken)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -123,7 +126,7 @@ export default function ItensPage() {
                   <span className="mono">{item.nome.slice(0, 2).toUpperCase()}</span>
                 )}
               </div>
-              <p style={{ color: 'var(--paper)', fontWeight: 600, marginBottom: 4 }}>{item.nome}</p>
+              <p style={{ color: 'var(--text-primary)', fontWeight: 600, marginBottom: 4 }}>{item.nome}</p>
               <span className={`stamp ${item.em_uso ? 'stamp-aberta' : 'stamp-concluida'}`} style={{ fontSize: '0.68rem' }}>
                 {item.em_uso ? 'Em uso' : 'Disponível'}
               </span>

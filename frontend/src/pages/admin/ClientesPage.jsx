@@ -60,8 +60,9 @@ export default function ClientesPage() {
 
   return (
     <div className="stack">
-      <div className="spread">
-        <h2>Clientes</h2>
+      <div>
+        <h1>Clientes</h1>
+        <p style={{ marginTop: 4 }}>Cadastre e gerencie os clientes que recebem equipamentos.</p>
       </div>
 
       <form className="tag-card stack" onSubmit={criar}>
@@ -107,7 +108,7 @@ export default function ClientesPage() {
                   borderRadius: 8,
                   margin: '0 auto 10px',
                   overflow: 'hidden',
-                  background: 'var(--ink-950)',
+                  background: 'var(--surface-sunken)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -119,7 +120,7 @@ export default function ClientesPage() {
                   <span className="mono">{cliente.nome.slice(0, 2).toUpperCase()}</span>
                 )}
               </div>
-              <p style={{ color: 'var(--paper)', fontWeight: 600, marginBottom: 10 }}>{cliente.nome}</p>
+              <p style={{ color: 'var(--text-primary)', fontWeight: 600, marginBottom: 10 }}>{cliente.nome}</p>
               <div className="stack" style={{ gap: 6 }}>
                 <input
                   ref={(el) => (trocaImagemRefs.current[cliente.id] = el)}

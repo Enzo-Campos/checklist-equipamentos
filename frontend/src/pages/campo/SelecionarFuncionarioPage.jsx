@@ -35,10 +35,10 @@ export default function SelecionarFuncionarioPage() {
               <button
                 key={f.id}
                 className="tag-card"
-                style={{ textAlign: 'left', cursor: 'pointer', border: '1.5px solid var(--hairline)' }}
+                style={{ textAlign: 'left', cursor: 'pointer', width: '100%' }}
                 onClick={() => setFuncionario({ id: f.id, nome: f.nome })}
               >
-                <p style={{ color: 'var(--paper)', fontWeight: 600 }}>{f.nome}</p>
+                <p style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{f.nome}</p>
                 <span className="eyebrow">{f.role}</span>
               </button>
             ))}

@@ -70,7 +70,7 @@ export default function ComandaDetalhePage() {
         <div className="row" style={{ justifyContent: 'space-between' }}>
           <div>
             <span className="eyebrow">Responsável</span>
-            <p style={{ color: 'var(--paper)' }}>{comanda.funcionario_nome}</p>
+            <p style={{ color: 'var(--text-primary)' }}>{comanda.funcionario_nome}</p>
           </div>
           <div>
             <span className="eyebrow">Criada em</span>

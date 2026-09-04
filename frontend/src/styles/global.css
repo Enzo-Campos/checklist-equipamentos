@@ -11,20 +11,12 @@ body {
 }
 
 body {
-  background: var(--ink-900);
-  background-image:
-    radial-gradient(ellipse 120% 80% at 50% -10%, rgba(255, 106, 19, 0.08), transparent 60%),
-    repeating-linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.012) 0px,
-      rgba(255, 255, 255, 0.012) 1px,
-      transparent 1px,
-      transparent 3px
-    );
-  color: var(--paper);
+  background: var(--bg-page);
+  color: var(--text-primary);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 #root {
@@ -38,32 +30,31 @@ h2,
 h3 {
   font-family: var(--font-display);
   font-weight: 700;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
+  letter-spacing: -0.02em;
   margin: 0;
-  color: var(--paper);
+  color: var(--text-primary);
 }
 
 h1 {
-  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
 }
 
 h2 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: 1.4rem;
 }
 
 h3 {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
 }
 
 p {
   margin: 0;
   line-height: 1.55;
-  color: var(--paper-dim);
+  color: var(--text-secondary);
 }
 
 a {
-  color: var(--safety-orange);
+  color: inherit;
 }
 
 button,
@@ -74,16 +65,16 @@ select {
 }
 
 .mono {
-  font-family: var(--font-mono);
-  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
 }
 
 .eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--paper-mute);
+  color: var(--text-tertiary);
 }
 
 /* ---------- layout shells ---------- */
@@ -96,7 +87,7 @@ select {
 
 .container {
   width: 100%;
-  max-width: 980px;
+  max-width: 1080px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -110,7 +101,7 @@ select {
 .row {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
@@ -122,41 +113,22 @@ select {
   flex-wrap: wrap;
 }
 
-/* ---------- rivet card: staple of the "equipment tag" motif ---------- */
+/* ---------- cards ---------- */
 
+.card,
 .tag-card {
   position: relative;
-  background: linear-gradient(180deg, var(--ink-800), var(--ink-850));
-  border: 1px solid var(--hairline);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 22px;
-  box-shadow: var(--shadow-tag);
-}
-
-.tag-card::before,
-.tag-card::after {
-  content: '';
-  position: absolute;
-  top: 10px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--ink-700);
-  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 255, 255, 0.04);
-}
-
-.tag-card::before {
-  left: 10px;
-}
-
-.tag-card::after {
-  right: 10px;
+  box-shadow: var(--shadow-card);
 }
 
 .tear {
   border: none;
-  border-top: 2px dashed var(--hairline);
-  margin: 18px 0;
+  border-top: 1px solid var(--border);
+  margin: 16px 0;
 }
 
 /* ---------- buttons ---------- */
@@ -170,19 +142,16 @@ select {
   justify-content: center;
   gap: 8px;
   min-height: var(--tap-min);
-  padding: 0 22px;
-  border-radius: var(--radius-md);
+  padding: 0 20px;
+  border-radius: var(--radius-pill);
   font-family: var(--font-display);
-  font-size: 1.05rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  transition: transform 0.08s ease, filter 0.15s ease, box-shadow 0.15s ease;
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 0.08s ease, filter 0.15s ease, background 0.15s ease, border-color 0.15s ease;
 }
 
 .btn:active {
-  transform: translateY(2px);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+  transform: scale(0.98);
 }
 
 .btn:disabled {
@@ -192,29 +161,41 @@ select {
 }
 
 .btn-primary {
-  background: var(--safety-orange);
-  color: var(--safety-orange-ink);
+  background: var(--text-primary);
+  color: var(--surface);
 }
 
 .btn-primary:hover:not(:disabled) {
-  filter: brightness(1.08);
+  filter: brightness(1.15);
+}
+
+.btn-accent {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-accent:hover:not(:disabled) {
+  background: var(--accent-hover);
 }
 
 .btn-ghost {
-  background: transparent;
-  border: 1.5px solid var(--hairline);
-  color: var(--paper);
-  box-shadow: none;
+  background: var(--surface);
+  border: 1.5px solid var(--border-strong);
+  color: var(--text-primary);
 }
 
 .btn-ghost:hover:not(:disabled) {
-  border-color: var(--safety-orange);
-  color: var(--safety-orange);
+  border-color: var(--text-primary);
 }
 
 .btn-danger {
-  background: var(--danger-red);
-  color: var(--paper);
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: var(--danger);
+  color: #fff;
 }
 
 .btn-block {
@@ -222,9 +203,9 @@ select {
 }
 
 .btn-sm {
-  min-height: 40px;
+  min-height: 38px;
   padding: 0 14px;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
 }
 
 .btn-icon {
@@ -243,11 +224,9 @@ select {
 }
 
 .field label {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--paper-mute);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
 }
 
 .field input[type='text'],
@@ -256,55 +235,95 @@ select {
 .field input[type='number'],
 .field select {
   min-height: var(--tap-min);
-  background: var(--ink-950);
-  border: 1.5px solid var(--hairline);
-  border-radius: var(--radius-sm);
+  background: var(--surface-sunken);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
   padding: 0 14px;
-  color: var(--paper);
-  font-size: 1rem;
+  color: var(--text-primary);
+  font-size: 0.95rem;
   outline: none;
-  transition: border-color 0.15s ease;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.field select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 38px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238b8b93' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+/* Chrome/Edge render the native option popup using these colors */
+.field select option {
+  background: var(--surface);
+  color: var(--text-primary);
 }
 
 .field input:focus,
 .field select:focus {
-  border-color: var(--safety-orange);
+  border-color: var(--accent);
+  background: var(--surface);
 }
 
 .field-file {
-  border: 1.5px dashed var(--hairline);
-  border-radius: var(--radius-sm);
-  padding: 12px 14px;
-  background: var(--ink-950);
+  border: 1.5px dashed var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  background: var(--surface-sunken);
 }
 
-/* ---------- status stamp badges ---------- */
+.field-file input {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 800px) {
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---------- status pills ---------- */
 
 .stamp {
   display: inline-flex;
   align-items: center;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 4px 12px;
-  border-radius: 3px;
-  border: 2px solid currentColor;
-  transform: rotate(-2deg);
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 5px 12px 5px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.stamp::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
 }
 
 .stamp-aberta {
-  color: var(--safety-orange);
+  color: var(--warn);
+  background: var(--warn-soft);
 }
 
 .stamp-concluida {
-  color: var(--ok-green);
+  color: var(--ok);
+  background: var(--ok-soft);
 }
 
 .stamp-cancelada {
-  color: var(--danger-red);
-  text-decoration: line-through;
+  color: var(--danger);
+  background: var(--danger-soft);
 }
 
 /* ---------- misc ---------- */
@@ -312,24 +331,25 @@ select {
 .empty-state {
   text-align: center;
   padding: 48px 20px;
-  color: var(--paper-mute);
+  color: var(--text-tertiary);
 }
 
 .error-banner {
-  background: rgba(217, 80, 59, 0.15);
-  border: 1.5px solid var(--danger-red);
-  color: #ffb7a8;
+  background: var(--danger-soft);
+  border: 1.5px solid rgba(229, 72, 77, 0.35);
+  color: var(--danger);
   padding: 12px 16px;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .spinner {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  border: 3px solid var(--hairline);
-  border-top-color: var(--safety-orange);
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
   animation: spin 0.7s linear infinite;
 }
 
@@ -361,19 +381,23 @@ table {
 
 th {
   text-align: left;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--paper-mute);
-  padding: 10px 12px;
-  border-bottom: 1px solid var(--hairline);
+  color: var(--text-tertiary);
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
 }
 
 td {
-  padding: 12px;
-  border-bottom: 1px solid var(--ink-750);
-  font-size: 0.92rem;
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+tbody tr:hover {
+  background: var(--surface-alt);
 }
 
 tr:last-child td {

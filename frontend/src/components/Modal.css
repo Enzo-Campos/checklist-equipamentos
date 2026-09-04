@@ -1,7 +1,7 @@
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(8, 7, 4, 0.72);
+  background: rgba(20, 20, 24, 0.45);
   backdrop-filter: blur(2px);
   display: flex;
   align-items: flex-end;
@@ -16,6 +16,7 @@
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   max-height: 88vh;
   overflow-y: auto;
+  box-shadow: var(--shadow-pop);
 }
 
 @media (min-width: 640px) {

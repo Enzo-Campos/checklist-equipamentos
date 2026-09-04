@@ -10,8 +10,8 @@
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  background: var(--ink-800);
-  border: 1.5px solid var(--hairline);
+  background: var(--surface);
+  border: 1.5px solid var(--border);
   border-radius: var(--radius-md);
   padding: 12px 10px 14px;
   cursor: pointer;
@@ -23,8 +23,8 @@
 }
 
 .item-tile.active {
-  border-color: var(--safety-orange);
-  background: var(--ink-750);
+  border-color: var(--accent);
+  background: var(--accent-ink);
 }
 
 .item-tile-check {
@@ -34,30 +34,30 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 1.5px solid var(--hairline);
+  border: 1.5px solid var(--border-strong);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.7rem;
-  color: var(--safety-orange-ink);
+  color: #fff;
   background: transparent;
 }
 
 .item-tile.active .item-tile-check {
-  background: var(--safety-orange);
-  border-color: var(--safety-orange);
+  background: var(--accent);
+  border-color: var(--accent);
 }
 
 .item-tile-thumb {
   width: 56px;
   height: 56px;
   border-radius: var(--radius-sm);
-  background: var(--ink-950);
+  background: var(--surface-sunken);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  color: var(--paper-mute);
+  color: var(--text-tertiary);
 }
 
 .item-tile-thumb img {
@@ -68,7 +68,8 @@
 
 .item-tile-nome {
   font-size: 0.82rem;
+  font-weight: 500;
   text-align: center;
-  color: var(--paper-dim);
+  color: var(--text-primary);
   line-height: 1.25;
 }

@@ -91,14 +91,16 @@ export default function NovaComandaPage() {
         {clientes === null ? (
           <Loader label="Carregando clientes" />
         ) : (
-          <select value={idCliente} onChange={(e) => setIdCliente(e.target.value)}>
-            <option value="">Selecione o cliente</option>
-            {clientes.map((c) => (
-              <option key={c.id} value={c.id}>
-                {c.nome}
-              </option>
-            ))}
-          </select>
+          <div className="field">
+            <select value={idCliente} onChange={(e) => setIdCliente(e.target.value)}>
+              <option value="">Selecione o cliente</option>
+              {clientes.map((c) => (
+                <option key={c.id} value={c.id}>
+                  {c.nome}
+                </option>
+              ))}
+            </select>
+          </div>
         )}
       </div>
 

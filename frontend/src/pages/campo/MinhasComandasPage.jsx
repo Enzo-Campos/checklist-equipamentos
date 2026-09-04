@@ -45,7 +45,7 @@ export default function MinhasComandasPage() {
               <div className="spread">
                 <div>
                   <span className="eyebrow mono">Comanda #{c.id}</span>
-                  <p style={{ color: 'var(--paper)', fontWeight: 600, fontSize: '1.05rem', marginTop: 4 }}>
+                  <p style={{ color: 'var(--text-primary)', fontWeight: 600, fontSize: '1.05rem', marginTop: 4 }}>
                     {c.cliente_nome}
                   </p>
                   <span className="eyebrow">{formatarData(c.created_at)}</span>

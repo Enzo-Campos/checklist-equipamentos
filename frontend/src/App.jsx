@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { FuncionarioProvider } from './context/FuncionarioContext';
+import { ThemeProvider } from './context/ThemeContext';
 import ProtectedAdminRoute from './components/ProtectedAdminRoute';
 
 import LandingPage from './pages/LandingPage';
@@ -19,36 +20,38 @@ import ComandaDetalhePage from './pages/campo/ComandaDetalhePage';
 
 export default function App() {
   return (
-    <AuthProvider>
-      <FuncionarioProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/entrar" element={<AdminLoginPage />} />
+    <ThemeProvider>
+      <AuthProvider>
+        <FuncionarioProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/entrar" element={<AdminLoginPage />} />
 
-            <Route
-              path="/admin"
-              element={
-                <ProtectedAdminRoute>
-                  <AdminLayout />
-                </ProtectedAdminRoute>
-              }
-            >
-              <Route index element={<HistoricoPage />} />
-              <Route path="historico" element={<HistoricoPage />} />
-              <Route path="clientes" element={<ClientesPage />} />
-              <Route path="funcionarios" element={<FuncionariosPage />} />
-              <Route path="itens" element={<ItensPage />} />
-            </Route>
+              <Route
+                path="/admin"
+                element={
+                  <ProtectedAdminRoute>
+                    <AdminLayout />
+                  </ProtectedAdminRoute>
+                }
+              >
+                <Route index element={<HistoricoPage />} />
+                <Route path="historico" element={<HistoricoPage />} />
+                <Route path="clientes" element={<ClientesPage />} />
+                <Route path="funcionarios" element={<FuncionariosPage />} />
+                <Route path="itens" element={<ItensPage />} />
+              </Route>
 
-            <Route path="/campo" element={<CampoGate />}>
-              <Route index element={<MinhasComandasPage />} />
-              <Route path="nova" element={<NovaComandaPage />} />
-              <Route path="comandas/:id" element={<ComandaDetalhePage />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </FuncionarioProvider>
-    </AuthProvider>
+              <Route path="/campo" element={<CampoGate />}>
+                <Route index element={<MinhasComandasPage />} />
+                <Route path="nova" element={<NovaComandaPage />} />
+                <Route path="comandas/:id" element={<ComandaDetalhePage />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </FuncionarioProvider>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
