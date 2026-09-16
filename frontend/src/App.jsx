@@ -12,6 +12,7 @@ import ClientesPage from './pages/admin/ClientesPage';
 import FuncionariosPage from './pages/admin/FuncionariosPage';
 import ItensPage from './pages/admin/ItensPage';
 import HistoricoPage from './pages/admin/HistoricoPage';
+import AdministradoresPage from './pages/admin/AdministradoresPage';
 
 import CampoGate from './pages/campo/CampoGate';
 import MinhasComandasPage from './pages/campo/MinhasComandasPage';
@@ -41,6 +42,7 @@ export default function App() {
                 <Route path="clientes" element={<ClientesPage />} />
                 <Route path="funcionarios" element={<FuncionariosPage />} />
                 <Route path="itens" element={<ItensPage />} />
+                <Route path="administradores" element={<AdministradoresPage />} />
               </Route>
 
               <Route path="/campo" element={<CampoGate />}>

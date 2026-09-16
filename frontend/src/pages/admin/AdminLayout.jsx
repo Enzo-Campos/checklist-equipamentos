@@ -1,5 +1,5 @@
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
-import { Sun, Moon, LayoutGrid, Users, IdCard, Package, LogOut, ClipboardList, ChevronDown } from 'lucide-react';
+import { Sun, Moon, LayoutGrid, Users, IdCard, Package, LogOut, ClipboardList, ChevronDown, ShieldCheck } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
 import './AdminLayout.css';
@@ -9,6 +9,7 @@ const SECTIONS = [
   { to: '/admin/clientes', label: 'Clientes', icon: Users },
   { to: '/admin/funcionarios', label: 'Funcionários', icon: IdCard },
   { to: '/admin/itens', label: 'Itens', icon: Package },
+  { to: '/admin/administradores', label: 'Administradores', icon: ShieldCheck },
 ];
 
 export default function AdminLayout() {
